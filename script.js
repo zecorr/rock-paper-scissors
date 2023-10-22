@@ -6,15 +6,15 @@ const choices = [rock, paper, scissors]
 const playerWins = "Player 1 wins!"
 const computerWins = "Computer Wins!"
 const draw = "Draw!"
-const randomPlayerChoice = Math.floor(Math.random() * 3)
-const randomComputerChoice = Math.floor(Math.random() * 3)
 
 // Randomly return either Rock, Paper, or Scissors.
-const getPlayerChoice = () => choices[randomPlayerChoice]
-const getComputerChoice = () => choices[randomComputerChoice]
+const randomChoice = () => choices[Math.floor(Math.random() * 3)]
 
-const player = getPlayerChoice()
-const computer = getComputerChoice()
+// // // // //
+// // // // //  Assign player choices - currently randomly generated. Change to user input via onClick
+// // // // //
+const getPlayerChoice = () => randomChoice()
+const getComputerChoice = () => randomChoice()
 
 // Handle round logic
 const playRound = function (playerSelection, computerSelection){
@@ -61,4 +61,13 @@ const playRound = function (playerSelection, computerSelection){
     } 
 }
 
-playRound(player, computer) 
+// Runs 5 rounds with random choices for each player for each round.
+const game = function(){
+    playRound(getPlayerChoice(), getComputerChoice()) 
+    playRound(getPlayerChoice(), getComputerChoice()) 
+    playRound(getPlayerChoice(), getComputerChoice()) 
+    playRound(getPlayerChoice(), getComputerChoice()) 
+    playRound(getPlayerChoice(), getComputerChoice()) 
+}
+
+game()
