@@ -1,12 +1,12 @@
 body {
-    background-color: #1b8d8d;
+    background-color: #154343;
     margin: 0;
 }
 
 .header-container {
     display: flex;
     border: 3px solid red;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 20px;
     flex-wrap: wrap;
 }
@@ -29,7 +29,6 @@ body {
     width: 5em;
     height: 3em;
     font-size: 24px;
-
 }
 
 .rock-btn{

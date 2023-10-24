@@ -6,10 +6,14 @@ const choices = [rock, paper, scissors]
 const playerWins = "Player 1 wins!"
 const computerWins = "Computer Wins!"
 const draw = "Draw!"
-let getPlayerChoice
-const rockClick = () => (getPlayerChoice = rock, game())
-const paperClick = () => (getPlayerChoice = paper, game())
-const scissorsClick = () => (getPlayerChoice = scissors, game())
+let playerScore = 0
+let computerScore = 0
+let playerChoice
+
+// Onclick function to begin game after player picks their option
+const rockClick = () => (playerChoice = rock, game())
+const paperClick = () => (playerChoice = paper, game())
+const scissorsClick = () => (playerChoice = scissors, game())
 
 // Randomly return either Rock, Paper, or Scissors.
 const randomChoice = () => choices[Math.floor(Math.random() * 3)]
@@ -60,12 +64,13 @@ const playRound = function (playerSelection, computerSelection){
     } 
 }
 
-let playerScore = 0
-let computerScore = 0
 
 
-const game = function(){
 
-    playRound(getPlayerChoice, getComputerChoice())
+const game = () =>  playRound(playerChoice, getComputerChoice())
 
-}
+// create score board
+// create div showing what each player picked and the outcome
+// create rock papers scissors shoot animation (1 - 1.5 seconds) upon button click
+
+
