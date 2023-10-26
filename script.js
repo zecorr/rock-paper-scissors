@@ -102,10 +102,10 @@ const playRound = function (playerSelection, computerSelection){
     } 
 }
 
-
+// Run game
 const game = () =>  playRound(playerChoice, computerChoice)
 
-
+// Handle animation fade
 function animationFade() {
     animation.style.opacity = 0
     roundOutcome.style.opacity = 0
