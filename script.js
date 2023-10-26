@@ -11,7 +11,7 @@ let playerScore = 0
 let computerScore = 0
 let playerChoice
 let computerChoice
-
+let winner
 
 // Variables to target elements
 const rockButton = document.getElementById('rock-btn')
@@ -19,30 +19,30 @@ const paperButton = document.getElementById('paper-btn')
 const scissorsButton = document.getElementById('scissors-btn')
 const animation = document.querySelector('.animation')
 const roundOutcome = document.querySelector('.round-outcome')
+const winnerFade = document.getElementById('winner')
 
 // Handle click function
 rockButton.addEventListener('click', () => {
     animationFade()
     setTimeout(() => {playerChoice = rock}, 1400)
     setTimeout(() => {computerChoice = randomChoice()}, 1405)
-    setTimeout(game, 1420)
+    setTimeout(game, 1410)
 })
 paperButton.addEventListener('click', () => {
     animationFade()
     setTimeout(() => {playerChoice = paper}, 1400)
     setTimeout(() => {computerChoice = randomChoice()}, 1405)
-    setTimeout(game, 1400)
+    setTimeout(game, 1410)
 })
 scissorsButton.addEventListener('click', () => {
     animationFade()
     setTimeout(() => {playerChoice = scissors}, 1400)
     setTimeout(() => {computerChoice = randomChoice()}, 1405)
-    setTimeout(game, 1400)
+    setTimeout(game, 1410)
 })
 
 // Randomly return either Rock, Paper, or Scissors.
 const randomChoice = () => choices[Math.floor(Math.random() * 3)]
-// const getComputerChoice = () => randomChoice()
 
 // Display starting scoreboard equal to zero
 document.getElementById("playerScore").innerHTML = playerScore
@@ -52,62 +52,58 @@ document.getElementById("computerScore").innerHTML = computerScore
 const playRound = function (playerSelection, computerSelection){
     const displayPlayerChoice = document.getElementById("playerChoice").innerHTML = playerChoice
     const displayComputerChoice = document.getElementById("computerChoice").innerHTML = computerChoice
-
     if (playerSelection === computerSelection){
-        console.log(`${draw} Both players had ${computerSelection}`)
         displayPlayerChoice        
         displayComputerChoice
+        document.getElementById('winner').innerHTML = draw
         return draw
     } else if (playerSelection === rock && computerSelection === paper){
-        console.log(`${paper} beats ${rock}. ${computerWins}`)
         computerScore++
         document.getElementById("computerScore").innerHTML = computerScore
         displayPlayerChoice        
         displayComputerChoice
+        document.getElementById('winner').innerHTML = computerWins
         return computerWins
     } else if (playerSelection === rock && computerSelection === scissors){
-        console.log(`${rock} beats ${scissors}! ${playerWins}`)
         playerScore++
         document.getElementById("playerScore").innerHTML = playerScore;
         displayPlayerChoice        
         displayComputerChoice
+        document.getElementById('winner').innerHTML = playerWins
         return playerWins
     } else if (playerSelection === paper && computerSelection === rock){
-        console.log(`${paper} beats ${rock}. ${playerWins}`)
         playerScore++
         document.getElementById("playerScore").innerHTML = playerScore;
         displayPlayerChoice        
         displayComputerChoice
+        document.getElementById('winner').innerHTML = playerWins
         return playerWins
     } else if (playerSelection === paper && computerSelection === scissors){
-        console.log(`${scissors} beats ${paper}! ${computerWins}`)
         computerScore++
         document.getElementById("computerScore").innerHTML = computerScore
         displayPlayerChoice        
         displayComputerChoice
+        document.getElementById('winner').innerHTML = computerWins
         return computerWins
     } else if (playerSelection === scissors && computerSelection === rock){
-        console.log(`${rock} beats ${scissors}! ${computerWins}`)
         computerScore++
         document.getElementById("computerScore").innerHTML = computerScore
         displayPlayerChoice        
         displayComputerChoice
+        document.getElementById('winner').innerHTML = computerWins
         return computerWins
     } else if (playerSelection === scissors && computerSelection === paper){
-        console.log(`${scissors} beats ${paper}! ${playerWins}`)
         playerScore++
         document.getElementById("playerScore").innerHTML = playerScore;
         displayPlayerChoice        
         displayComputerChoice
+        document.getElementById('winner').innerHTML = playerWins
         return playerWins
     } 
 }
 
 
-
-
 const game = () =>  playRound(playerChoice, computerChoice)
-
 
 
 function animationFade() {
@@ -117,32 +113,36 @@ function animationFade() {
     setTimeout(() => {
         animation.textContent = fadeChoices[0];
         animation.style.opacity = 1; 
-    }, 200); 
+    }, 190); 
     setTimeout(() => {
         animation.style.opacity = 0;  
-    }, 400); 
+    }, 380); 
     setTimeout(() => {
         animation.textContent = fadeChoices[1];
         animation.style.opacity = 1; 
-    }, 600); 
+    }, 570); 
     setTimeout(() => {
         animation.style.opacity = 0;  
-    }, 800); 
+    }, 760); 
     setTimeout(() => {
         animation.textContent = fadeChoices[2];
         animation.style.opacity = 1; 
-    }, 1000); 
+    }, 950); 
     setTimeout(() => {
         animation.style.opacity = 0;  
-    }, 1200); 
+    }, 1140); 
     setTimeout(() => {
         animation.textContent = fadeChoices[3];
         animation.style.opacity = 1;
-    }, 1400); 
+    }, 1330); 
     setTimeout(() => {
         roundOutcome.style.opacity = 1 
-    }, 1600)
+        winnerFade.style.opacity = 1 
+    }, 1520)
     setTimeout(() => {
        animation.style.opacity = 0 
-    }, 2000);
+    }, 1910);
+    setTimeout(() => {
+        winnerFade.style.opacity = 0 
+     }, 2410);
 }

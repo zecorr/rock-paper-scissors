@@ -42,26 +42,25 @@ body {
 }
 
 .main-container {
+    width: 100%;
     display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .score-board {
     margin: 0;
     display: flex;
     flex-direction: column;
-    width: 100%;
     height: auto;
-    align-items: center;
-    padding: 1% 0 0;
-    flex-wrap: wrap;
-
+    align-items: flex-end;
+    padding: 0;
 }
 
 h3 {
     margin: 0;
-    padding: 0 1em 0.5em;
+    padding: 0 4em 0;
     text-decoration: underline;
-    
 }
 
 ul {
@@ -70,13 +69,16 @@ ul {
     flex-direction: column;
     margin: 0;
     padding: 0;
-
 }
 
 .score-board ul {
     color: white;
-    padding: 0 1em 1em;
+    padding: 0 5em 1em;
     align-items: flex-end;
+}
+
+.score-board li {
+    padding: 0.5em 0;
 }
 
 .round-description ul {
@@ -90,28 +92,37 @@ ul {
 }
 
 .animation  {
-    width: 100%;
+    width: 4em;
     height: auto;
-    font-size: 48px;
+    font-size: 72px;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.25s;
 }
 
 .round-description-container {
-    width: 100%;
+    width: 12em;
     height: auto;
     font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
+    padding: 1em;
 
 }
 
 .rules {
     color: #154343;
+}
 
+#winner {
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    opacity: 1;
+    transition: opacity 1s;
 }
