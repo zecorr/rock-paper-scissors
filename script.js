@@ -10,6 +10,7 @@ const draw = "Draw!"
 let playerScore = 0
 let computerScore = 0
 let playerChoice
+let computerChoice
 
 
 // Variables to target elements
@@ -23,24 +24,25 @@ const roundOutcome = document.querySelector('.round-outcome')
 rockButton.addEventListener('click', () => {
     animationFade()
     setTimeout(() => {playerChoice = rock}, 1400)
-    setTimeout(game, 1400)
+    setTimeout(() => {computerChoice = randomChoice()}, 1405)
+    setTimeout(game, 1420)
 })
-
 paperButton.addEventListener('click', () => {
     animationFade()
     setTimeout(() => {playerChoice = paper}, 1400)
+    setTimeout(() => {computerChoice = randomChoice()}, 1405)
     setTimeout(game, 1400)
 })
-
 scissorsButton.addEventListener('click', () => {
     animationFade()
     setTimeout(() => {playerChoice = scissors}, 1400)
+    setTimeout(() => {computerChoice = randomChoice()}, 1405)
     setTimeout(game, 1400)
 })
 
 // Randomly return either Rock, Paper, or Scissors.
 const randomChoice = () => choices[Math.floor(Math.random() * 3)]
-const getComputerChoice = () => randomChoice()
+// const getComputerChoice = () => randomChoice()
 
 // Display starting scoreboard equal to zero
 document.getElementById("playerScore").innerHTML = playerScore
@@ -49,7 +51,7 @@ document.getElementById("computerScore").innerHTML = computerScore
 // Handle round logic
 const playRound = function (playerSelection, computerSelection){
     const displayPlayerChoice = document.getElementById("playerChoice").innerHTML = playerChoice
-    const displayComputerChoice = document.getElementById("computerChoice").innerHTML = getComputerChoice()
+    const displayComputerChoice = document.getElementById("computerChoice").innerHTML = computerChoice
 
     if (playerSelection === computerSelection){
         console.log(`${draw} Both players had ${computerSelection}`)
@@ -104,7 +106,7 @@ const playRound = function (playerSelection, computerSelection){
 
 
 
-const game = () =>  playRound(playerChoice, getComputerChoice())
+const game = () =>  playRound(playerChoice, computerChoice)
 
 
 
