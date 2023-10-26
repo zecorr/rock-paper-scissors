@@ -9,13 +9,13 @@
 <body>
     <div class="header-container">
         <div class="header-rock">
-            <button onclick="rockClick()" class="rock-btn">Rock</button>
+            <button id="rock-btn">Rock</button>
         </div>
         <div class="header-paper">
-            <button onclick="paperClick()" class="paper-btn">Paper</button>
+            <button id="paper-btn">Paper</button>
         </div>
         <div class="header-scissors">
-            <button onclick="scissorsClick()" class="scissors-btn">Scissors</button>
+            <button id="scissors-btn">Scissors</button>
         </div>
     </div>
     <div class="main-container">
@@ -26,12 +26,31 @@
                 <li>Computer : &nbsp<span id="computerScore"></span></li>
             </ul>
         </div>
-        <div class="animation">Rock <br> Paper <br> Scissors <br> Shoot!</div>
-        <div class="round-description-container">Round Description
-            <div class="round-description">testing testing <br> testing</div>
+        <div class="animation"></div>
+
+        <div class="round-description-container">
+            <div class="round-description">
+                <ul>
+                    <li>Player 1 chose : </li><br>
+                    <li>Computer chose : </li>
+                </ul>
+            </div>
+            <div class="round-outcome">
+                <ul>
+                    <li><span id="playerChoice"></span></li><br>
+                    <li><span id="computerChoice"></span></li>
+                </ul>
+            </div>
+                
         </div>
     </div>
-    
+    <!-- <button id="animateButton">Animate</button> -->
+<div class="rules">
+<p> &nbsp &nbsp &nbsp &nbsp Rules:</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Rock beats scissors</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Paper beats rock</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Scissors beats paper</p>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

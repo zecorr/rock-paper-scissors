@@ -19,30 +19,26 @@ body {
     justify-content: space-around;
     align-items: center;
     gap: 16px;
-    border: 3px solid green;
 }
 
-.rock-btn,
-.scissors-btn,
-.paper-btn {
+#rock-btn,
+#paper-btn,
+#scissors-btn {
     width: 5em;
     height: 3em;
     font-size: 24px;
 }
 
-.rock-btn{
+#rock-btn{
     background-color: gray;
-
 }
 
-.paper-btn{
+#paper-btn{
     background-color: #fff;
-
 }
 
-.scissors-btn{
+#scissors-btn{
     background-color: #d4af37;
-
 }
 
 .main-container {
@@ -50,14 +46,13 @@ body {
 }
 
 .score-board {
-    border: 3px solid red;
     margin: 0;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: auto;
-    align-items: flex-start;
-    padding: 5% 0 0;
+    align-items: center;
+    padding: 1% 0 0;
     flex-wrap: wrap;
 
 }
@@ -70,36 +65,53 @@ h3 {
 }
 
 ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    padding: 0 1em 1em;
+    padding: 0;
+
 }
 
-li {
-    list-style-type: none;
-    margin: 0;
-    padding: 4px;
-    display: flex;
-    justify-content: end;
+.score-board ul {
+    color: white;
+    padding: 0 1em 1em;
+    align-items: flex-end;
+}
+
+.round-description ul {
+    align-items: flex-end;
+    padding: 0.5em;
+}
+
+.round-outcome ul {
+    align-items: flex-start;
+    color: white;
 }
 
 .animation  {
-    border: 3px solid yellow;
-    width: 200%;
+    width: 100%;
     height: auto;
-    font-size: 32px;
-    text-align: center;
-
-
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.25s;
 }
 
 .round-description-container {
-    border: 3px solid green;
     width: 100%;
     height: auto;
-    font-size: 24px;
-    text-align: center;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+
 }
 
-.round-description {
-    
+.rules {
+    color: #154343;
+
 }
