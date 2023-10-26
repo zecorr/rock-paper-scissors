@@ -83,7 +83,7 @@ ul {
 
 .round-description ul {
     align-items: flex-end;
-    padding: 0.5em;
+    padding: 0.5em 1em;
     border: 2px solid yellow;
 }
 
@@ -91,6 +91,7 @@ ul {
     align-items: flex-start;
     color: white;
     border: 2px solid green;
+    width: 4em;
 }
 
 .animation  {
@@ -105,7 +106,7 @@ ul {
 }
 
 .round-description-container {
-    width: 12em;
+    width: 16em;
     height: auto;
     font-size: 16px;
     display: flex;
