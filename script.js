@@ -21,24 +21,27 @@ const animation = document.querySelector('.animation')
 const roundOutcome = document.querySelector('.round-outcome')
 const winnerFade = document.getElementById('winner')
 
+// Handle delay for computer choice and starting game
+const gameDelay = function (){
+    setTimeout(() => {computerChoice = randomChoice()}, 1405)
+    setTimeout(game, 1410)
+}
+
 // Handle click function
 rockButton.addEventListener('click', () => {
     animationFade()
     setTimeout(() => {playerChoice = rock}, 1400)
-    setTimeout(() => {computerChoice = randomChoice()}, 1405)
-    setTimeout(game, 1410)
+    gameDelay()
 })
 paperButton.addEventListener('click', () => {
     animationFade()
     setTimeout(() => {playerChoice = paper}, 1400)
-    setTimeout(() => {computerChoice = randomChoice()}, 1405)
-    setTimeout(game, 1410)
+    gameDelay()
 })
 scissorsButton.addEventListener('click', () => {
     animationFade()
     setTimeout(() => {playerChoice = scissors}, 1400)
-    setTimeout(() => {computerChoice = randomChoice()}, 1405)
-    setTimeout(game, 1410)
+    gameDelay()
 })
 
 // Randomly return either Rock, Paper, or Scissors.
@@ -52,51 +55,48 @@ document.getElementById("computerScore").innerHTML = computerScore
 const playRound = function (playerSelection, computerSelection){
     const displayPlayerChoice = document.getElementById("playerChoice").innerHTML = playerChoice
     const displayComputerChoice = document.getElementById("computerChoice").innerHTML = computerChoice
-    if (playerSelection === computerSelection){
-        displayPlayerChoice        
+    const displayChoices = function (){
+        displayPlayerChoice
         displayComputerChoice
+    }
+    if (playerSelection === computerSelection){
+        displayChoices()
         document.getElementById('winner').innerHTML = draw
         return draw
     } else if (playerSelection === rock && computerSelection === paper){
         computerScore++
         document.getElementById("computerScore").innerHTML = computerScore
-        displayPlayerChoice        
-        displayComputerChoice
+        displayChoices()
         document.getElementById('winner').innerHTML = computerWins
         return computerWins
     } else if (playerSelection === rock && computerSelection === scissors){
         playerScore++
         document.getElementById("playerScore").innerHTML = playerScore;
-        displayPlayerChoice        
-        displayComputerChoice
+        displayChoices()
         document.getElementById('winner').innerHTML = playerWins
         return playerWins
     } else if (playerSelection === paper && computerSelection === rock){
         playerScore++
         document.getElementById("playerScore").innerHTML = playerScore;
-        displayPlayerChoice        
-        displayComputerChoice
+        displayChoices()
         document.getElementById('winner').innerHTML = playerWins
         return playerWins
     } else if (playerSelection === paper && computerSelection === scissors){
         computerScore++
         document.getElementById("computerScore").innerHTML = computerScore
-        displayPlayerChoice        
-        displayComputerChoice
+        displayChoices()
         document.getElementById('winner').innerHTML = computerWins
         return computerWins
     } else if (playerSelection === scissors && computerSelection === rock){
         computerScore++
         document.getElementById("computerScore").innerHTML = computerScore
-        displayPlayerChoice        
-        displayComputerChoice
+        displayChoices()
         document.getElementById('winner').innerHTML = computerWins
         return computerWins
     } else if (playerSelection === scissors && computerSelection === paper){
         playerScore++
         document.getElementById("playerScore").innerHTML = playerScore;
-        displayPlayerChoice        
-        displayComputerChoice
+        displayChoices()
         document.getElementById('winner').innerHTML = playerWins
         return playerWins
     } 
@@ -110,27 +110,19 @@ function animationFade() {
     animation.style.opacity = 0
     roundOutcome.style.opacity = 0
 
-    setTimeout(() => {
-        animation.textContent = fadeChoices[0];
-        animation.style.opacity = 1; 
-    }, 190); 
-    setTimeout(() => {
-        animation.style.opacity = 0;  
-    }, 380); 
-    setTimeout(() => {
-        animation.textContent = fadeChoices[1];
-        animation.style.opacity = 1; 
-    }, 570); 
-    setTimeout(() => {
-        animation.style.opacity = 0;  
-    }, 760); 
-    setTimeout(() => {
-        animation.textContent = fadeChoices[2];
-        animation.style.opacity = 1; 
-    }, 950); 
-    setTimeout(() => {
-        animation.style.opacity = 0;  
-    }, 1140); 
+    const handleFade = function (choice, one, time, zero, time2){
+        setTimeout(() => {
+            animation.textContent = fadeChoices[choice];
+            animation.style.opacity = one; 
+        }, time); 
+        setTimeout(() => {
+            animation.style.opacity = zero;  
+        }, time2); 
+    }
+
+    handleFade(0, 1, 190, 0, 380)
+    handleFade(1, 1, 570, 0, 760)
+    handleFade(2, 1, 950, 0, 1140)
     setTimeout(() => {
         animation.textContent = fadeChoices[3];
         animation.style.opacity = 1;
@@ -144,5 +136,5 @@ function animationFade() {
     }, 1910);
     setTimeout(() => {
         winnerFade.style.opacity = 0 
-     }, 2410);
+     }, 2910);
 }
